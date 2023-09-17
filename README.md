@@ -66,7 +66,7 @@ There are different ways to get an entity to the lifecycle state managed:
 4 | em.persist(author);
 ```
 
-2. You can load an entity object from the database using the EntityManager.find method, a JPQL query, a CriteriaQuery, or a native SQL query.
+2. You can load an entity object from the database using the EntityManager.find method, a [JPQL query](https://thorben-janssen.com/jpql/), a CriteriaQuery, or a [native SQL query](https://thorben-janssen.com/jpa-native-queries/).
 ```Java
 1 | Author author = em.find(Author.class, 1L);
 ```
@@ -87,11 +87,11 @@ You can also programmatically detach an entity by calling the detach method on t
 1 | em.detach(author);
 ```
 
-There are only very few performance-tuning reasons to detach a managed entity. If you decide to detach an entity, you should first flush the persistence context to avoid losing any pending changes.
+There are only very few [performance-tuning reasons](https://thorben-janssen.com/hibernate-performance-tuning-online-training-wst/) to detach a managed entity. If you decide to detach an entity, you should first flush the persistence context to avoid losing any pending changes.
 
 ### Reattaching an entity
 
-You can reattach an entity by calling the update method on your Hibernate Session or the merge method on the EntityManager. There are a few subtle differences between these operations that I explain in great detail in What’s the difference between persist, save, merge, and update? Which one should you use?
+You can reattach an entity by calling the update method on your Hibernate Session or the merge method on the EntityManager. There are a few subtle differences between these operations that [are explained here](https://thorben-janssen.com/persist-save-merge-saveorupdate-whats-difference-one-use)
 
 In both cases, the entity changes its lifecycle state to manage.
 
