@@ -1,5 +1,5 @@
 # JPA-Hibernate
-A project with JPA instead of JBDC, an explanation of why choosing one instead of the other.
+A project with JPA instead of JBDC, an explanation of why choosing JPA instead of the JBDC.
 
 ## JDBC Disadvantages
 - Too much verbosity
@@ -11,15 +11,22 @@ A project with JPA instead of JBDC, an explanation of why choosing one instead o
 JPA is a standard, Java Persistence API, which applies to ORMs. It was created to not depend on specific implementations of each solution provided in the market as Hibernate or its alternatives. JPA is now the specification, while libraries such as Hibernate, EclipseLink, or OpenJPA, are their implementations.
 It is important to remember that JPA is just an abstraction.
 
+## Why would you choose JBDC?
+
+JBDC is a standard for `Database Access`. You will use it in case of need more control over the database. The main problem with JBDC is that the developer sees a combination of SQL and Java in its code.
+
+## Why would you choose JPA?
+
+JPA is an Object Relational Mapping, which is, in other words, making objects from tables in the database. You will use JPA in case of needless control, better readability, and a high level of abstraction.
 
 ## What is Hibernate?
 
 Hibernate is a library that was created as an alternative to JDBC/EJB2 to guarantee data persistence. This library tried to simplify JBDC.
 
-## Which databases supports Hibernate?
+## Which databases support Hibernate?
 
 - MySQL
-- PostgresSQL
+- PostgreSQL
 - Oracle
 - SQL Server
 - MongoDB
