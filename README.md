@@ -16,3 +16,13 @@ It is important to remember that JPA is just an abstraction.
 
 Hibernate is a library that was created as an alternative to JDBC/EJB2 to guarantee data persistence. This library tried to simplify JBDC.
 
+## Which databases supports Hibernate?
+
+- MySQL
+- PostgresSQL
+- Oracle
+- SQL Server
+- MongoDB
+- NoSQL
+
+And so on...
