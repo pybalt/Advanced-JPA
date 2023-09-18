@@ -16,7 +16,7 @@ public class Product {
         /*
         Not having this default constructor throws...
         INFO: HHH000327: Error performing load command
-        org.hibernate.InstantiationException: No default constructor for entity:  : store.model.Category
+        org.hibernate.InstantiationException: No default constructor for entity:  : store.model.Product
         */
     }
     public Long getId() {
