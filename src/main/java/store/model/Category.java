@@ -10,7 +10,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
+    private String name;
 
     public Long getId() {
         return id;
@@ -20,15 +20,22 @@ public class Category {
         this.id = id;
     }
 
-    public Category(String nombre) {
-        this.nombre = nombre;
+    public Category(){
+        /*
+        Not having this default constructor throws...
+        INFO: HHH000327: Error performing load command
+        org.hibernate.InstantiationException: No default constructor for entity:  : store.model.Category
+         */
+    }
+    public Category(String name) {
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 }

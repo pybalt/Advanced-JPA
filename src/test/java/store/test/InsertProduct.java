@@ -9,10 +9,13 @@ import utils.JPAUtils;
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
-public class insertProduct {
+public class InsertProduct {
     public static void main(String[] args) {
 
-        EntityManager manager = JPAUtils.getEntityManager();
+        insertSomeProductToDatabase(JPAUtils.getEntityManager());
+    }
+
+    public static void insertSomeProductToDatabase(EntityManager manager) {
         CategoryDAO categoryDAO = new CategoryDAO(manager);
         ProductDAO productDAO = new ProductDAO(manager);
 
@@ -22,7 +25,7 @@ public class insertProduct {
 
         Category smartPhone = new Category("SMARTPHONE");
         Product cellPhone = new Product(
-                "Samsung",
+                "Samsung S23 ULTRA",
                 "Very good cellphone",
                 new BigDecimal("100"),
                 smartPhone

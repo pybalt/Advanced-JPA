@@ -13,4 +13,15 @@ public class CategoryDAO
     public void insert(Category model){
         this.manager.persist(model);
     }
+
+    public void update(Category model){
+        this.manager.merge(model);
+    }
+    public void delete(Category model){
+        this.manager.merge(model);
+        this.manager.remove(model);
+    }
+    public Category find(Long id){
+        return manager.find(Category.class, id);
+    }
 }

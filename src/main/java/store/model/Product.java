@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="PRODUCTS")
 public class Product {
     public Product(String name, String description, BigDecimal price, Category category) {
         this.name = name;
@@ -13,7 +12,13 @@ public class Product {
         this.price = price;
         this.category = category;
     }
-
+    public Product(){
+        /*
+        Not having this default constructor throws...
+        INFO: HHH000327: Error performing load command
+        org.hibernate.InstantiationException: No default constructor for entity:  : store.model.Category
+        */
+    }
     public Long getId() {
         return id;
     }
