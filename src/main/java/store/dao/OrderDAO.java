@@ -50,5 +50,9 @@ public class OrderDAO {
                 + "GROUP BY product.name, orderedItem.quantity ORDER BY orderedItem.quantity DESC";
         return manager.createQuery(jpql, salesReport.class).getResultList();
     }
+    public Order findOrderWithClientFetch(Long id){
+        String jpql = "SELECT DISTINCT ord FROM Order ord JOIN FETCH ord.client WHERE ord.id = :id";
+        return manager.createQuery(jpql, Order.class).setParameter("id", id).getSingleResult();
+    }
 
 }

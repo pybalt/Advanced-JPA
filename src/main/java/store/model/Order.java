@@ -47,7 +47,7 @@ public class Order {
 
     private LocalDate date = LocalDate.now();
     private BigDecimal totalValue = BigDecimal.ZERO;
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY) // Optimizing the query. Lazy only loads the client when it is needed.
     private Client client;
     @OneToMany(mappedBy="order", cascade=CascadeType.ALL)
     private List<OrderedItem> orderedItems = new ArrayList<>();
