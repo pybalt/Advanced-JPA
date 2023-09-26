@@ -36,6 +36,5 @@ public class InsertProduct {
         productDAO.insert(cellPhone);
 
         manager.getTransaction().commit();
-        manager.close();
     }
 }

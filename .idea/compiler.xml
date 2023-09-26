@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="store (2)" />
+        <module name="store" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JPA-Hibernate" target="1.5" />
-      <module name="store" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -7,9 +7,9 @@ import utils.JPAUtils;
 
 import javax.persistence.EntityManager;
 
-import static store.test.aggregationFunctions.generateABunchOfOrders;
+import static store.test.AggregationFunctions.generateABunchOfOrders;
 
-public class testSalesReportVO {
+public class TestSalesReportVO {
     static EntityManager manager = JPAUtils.getEntityManager();
     static ProductDAO productDAO = new ProductDAO(manager);
     static OrderDAO orderDAO = new OrderDAO(manager);
