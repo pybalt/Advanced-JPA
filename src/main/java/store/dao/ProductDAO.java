@@ -24,16 +24,19 @@ public class ProductDAO {
     }
 
     public List<Product> findByName(String name){
-        String jpql = "SELECT P FROM Product as P WHERE P.name=:name";
-        return manager.createQuery(jpql, Product.class).setParameter("name", name).getResultList();
+        return manager.createNamedQuery("Product.findByName", Product.class)
+                .setParameter("name", name)
+                .getResultList();
     }
     public List<Product> listByCategory(Category category){
-        String jpql = "SELECT P FROM Product as P WHERE P.category.name=:name";
-        return manager.createQuery(jpql, Product.class).setParameter("name", category.getName()).getResultList();
+        return manager.createNamedQuery("Product.findByCategory", Product.class)
+                .setParameter("category", category.getName())
+                .getResultList();
     }
 
     public BigDecimal getPriceByName(String name) {
-        String jpql = "SELECT P.price FROM Product as P WHERE P.name=:name";
-        return manager.createQuery(jpql, BigDecimal.class).setParameter("name", name).getSingleResult();
+        return manager
+                .createNamedQuery("Product.getPriceByName", BigDecimal.class)
+                .setParameter("name", name).getSingleResult();
     }
 }
