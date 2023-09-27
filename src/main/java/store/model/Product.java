@@ -64,4 +64,16 @@ public class Product {
     private LocalDate createdAt= LocalDate.now();
     @ManyToOne
     private Category category;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", createdAt=" + createdAt +
+                ", category=" + category +
+                '}';
+    }
 }

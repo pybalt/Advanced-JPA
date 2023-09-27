@@ -39,4 +39,28 @@ public class ProductDAO {
                 .createNamedQuery("Product.getPriceByName", BigDecimal.class)
                 .setParameter("name", name).getSingleResult();
     }
+
+    public List<Product> findByParameters(String name, String description, BigDecimal price){
+        StringBuilder jpql = new StringBuilder("SELECT P FROM Product P WHERE 1=1");
+        if(name != null && !name.trim().isEmpty()){
+            jpql.append(" AND P.name = :name");
+        }
+        if(description != null && !description.trim().isEmpty()){
+            jpql.append(" AND P.description = :description");
+        }
+        if(price != null && !price.equals(BigDecimal.ZERO)){
+            jpql.append(" AND P.price = :price");
+        }
+        var query = manager.createQuery(String.valueOf(jpql));
+        if(name != null){
+            query.setParameter("name", name);
+        }
+        if(description != null){
+            query.setParameter("description", description);
+        }
+        if(price != null){
+            query.setParameter("price", price);
+        }
+        return query.getResultList();
+    }
 }
