@@ -1,6 +1,7 @@
 package store.test;
 
 import store.model.Category;
+import store.model.CategoryID;
 import utils.JPAUtils;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ public class TestMergeFlush {
     public static void main(String[] args) {
         EntityManager manager = JPAUtils.getEntityManager();
 
-        Category smartphones = new Category("CELLPHONES");
+        Category smartphones = new Category(new CategoryID("CELLPHONES", "ELECTRONICS"));
 
 
         manager.getTransaction().begin();

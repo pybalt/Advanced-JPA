@@ -3,6 +3,7 @@ package store.test;
 import store.dao.CategoryDAO;
 import store.dao.ProductDAO;
 import store.model.Category;
+import store.model.CategoryID;
 import store.model.Product;
 import utils.JPAUtils;
 
@@ -23,7 +24,7 @@ public class InsertProduct {
         manager.getTransaction().begin();
 
 
-        Category smartPhone = new Category("SMARTPHONE");
+        Category smartPhone = new Category(new CategoryID("SMARTPHONES", "ELECTRONICS"));
         Product cellPhone = new Product(
                 "Samsung S23 ULTRA",
                 "Very good cellphone",
