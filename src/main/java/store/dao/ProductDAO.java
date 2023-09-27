@@ -4,6 +4,10 @@ import store.model.Category;
 import store.model.Product;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -62,5 +66,23 @@ public class ProductDAO {
             query.setParameter("price", price);
         }
         return query.getResultList();
+    }
+    public List<Product> findByParametersWithCriteriaAPI(String name, String description, BigDecimal price){
+        CriteriaBuilder builder = manager.getCriteriaBuilder();
+        CriteriaQuery<Product> query = builder.createQuery(Product.class);
+        Root<Product> from = query.from(Product.class);
+
+        Predicate filter = builder.and();
+        if(name != null && !name.trim().isEmpty()){
+            filter = builder.and(filter, builder.equal(from.get("name"), name));
+        }
+        if(price != null && !price.equals(BigDecimal.ZERO)){
+            filter = builder.and(filter, builder.equal(from.get("price"), price));
+        }
+        if(description != null && !description.trim().isEmpty()){
+            filter = builder.and(filter, builder.equal(from.get("description"), description));
+        }
+        query = query.where(filter);
+        return manager.createQuery(query).getResultList();
     }
 }
