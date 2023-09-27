@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Product p WHERE p.name = :name")
 @NamedQuery(name = "Product.findByCategory", query = "SELECT p FROM Product p WHERE p.category = :category")
 @NamedQuery(name = "Product.getPriceByName", query = "SELECT p.price FROM Product p WHERE p.name = :name")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
     public Product(String name, String description, BigDecimal price, Category category) {
         this.name = name;
