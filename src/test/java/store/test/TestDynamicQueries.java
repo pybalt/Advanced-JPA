@@ -28,5 +28,6 @@ public class TestDynamicQueries
                 .forEach(System.out::println);
         productDAO.findByParameters(null, "Very good cellphone", null)
                 .forEach(System.out::println);
+        manager.close();
     }
 }
